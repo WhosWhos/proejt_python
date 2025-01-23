@@ -1,10 +1,5 @@
 import streamlit as st
-from sklearn.ensemble import RandomForestClassifier
 import joblib
-
-# Entraîner le modèle Random Forest
-rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
-rf_model.fit(X_train, y_train)
 
 # Sauvegarder le modèle
 joblib.dump(rf_model, 'random_forest_model.pkl')
