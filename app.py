@@ -1,11 +1,22 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import requests
+from io import StringIO
 
 # Chargement des données avec cache
 @st.cache_data
-url = "https://raw.githubusercontent.com/WhosWhos/projet_python/refs/heads/main/covid19_data_test.csv"
+def data():
+    url = 'https://raw.githubusercontent.com/WhosWhos/projet_python/refs/heads/main/covid19_data_test.csv'
+    response = requests.get(url)
+    if response.status_code == 200:
+        return pd.read_csv(StringIO(response.text))
+    else:
+        st.error("Failed to load data from GitHub.")
+        return None
+        
 data = pd.read_csv(url, index_col=0)
+
 
 # Chargement du modèle sauvegardé
 loaded_model = joblib.load(r"C:\Users\Lenovo\Downloads\logistic_model.pkl")
