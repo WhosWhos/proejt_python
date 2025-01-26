@@ -15,9 +15,6 @@ def data():
         st.error("Failed to load data from GitHub.")
         return None
         
-data = pd.read_csv(url, index_col=0)
-
-
 # Chargement du modèle sauvegardé
 loaded_model = joblib.load(r"C:\Users\Lenovo\Downloads\logistic_model.pkl")
 
