@@ -17,7 +17,7 @@ def data():
         return None
         
 # Chargement du modèle sauvegardé
-loaded_model = pd.read_pickle("logistic_model.pkl")
+loaded_model = joblib.load("logistic_model.pkl")
 
 # Définition de la fonction de prédiction
 def predict_intubation(input_data):
