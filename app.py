@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import pickle
 import requests
 from io import StringIO
 
@@ -16,7 +17,7 @@ def data():
         return None
         
 # Chargement du modèle sauvegardé
-loaded_model = joblib.load(r"C:\Users\Lenovo\Downloads\logistic_model.pkl")
+loaded_model = pd.read_pickle("logistic_model.pkl")
 
 # Définition de la fonction de prédiction
 def predict_intubation(input_data):
