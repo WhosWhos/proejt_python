@@ -4,7 +4,7 @@ import joblib
 
 # Chargement des données avec cache
 @st.cache_data
-url = "https://github.com/WhosWhos/projet_python/blob/main/covid19_data_test.csv"
+url = "https://raw.githubusercontent.com/WhosWhos/projet_python/refs/heads/main/covid19_data_test.csv"
 data = pd.read_csv(url, index_col=0)
 
 # Chargement du modèle sauvegardé
