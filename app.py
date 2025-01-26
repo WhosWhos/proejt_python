@@ -4,11 +4,8 @@ import joblib
 
 # Chargement des données avec cache
 @st.cache_data
-def load_data():
-    data = pd.read_csv(r"C:\Users\Lenovo\Downloads\ProjectFinal2024-2025\ProjectFinal2024-2025\data\covid19_data.csv")
-    return data
-
-data = load_data()
+url = "https://github.com/WhosWhos/projet_python/blob/main/covid19_data_test.csv"
+data = pd.read_csv(url, index_col=0)
 
 # Chargement du modèle sauvegardé
 loaded_model = joblib.load(r"C:\Users\Lenovo\Downloads\logistic_model.pkl")
